@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hotel Campestre El Triunfo</title>
+        <link rel="icon" type="image/png" sizes="16x16" href="\images\favlogo.png">
+        <link rel="stylesheet" href="\css\style.css">
+    </head>
+
+<body>
+    <div class="title">
+        <table style="width:100%" border=0>
+            <tr>
+                <td align="left">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="\"><img src="\images\logo3.jpg" id="logo"/></a>
+                </td>
+                <td>
+                    
+                </td>
+                <td align="right">
+                    <a class="nav-link active" href="\">Inicio</a>&nbsp;&nbsp; <!-- Enlace al inicio de la página -->
+                    <a class="nav-link" href="login">Ingresar</a>&nbsp;&nbsp; <!-- Enlace a la página de inicio de sesión -->
+                    <a class="nav-link" href="register">Registrarme</a>&nbsp;&nbsp;&nbsp;&nbsp; <!-- Enlace a la página de registro -->
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="container form-container">
+        <h1>Registro de usuario</h1>
+
+        <!-- Sección para mostrar mensajes de alerta si existen -->
+        <% if (typeof rowLength !== 'undefined' && rowLength) { %>
+            <div class="alert warning">
+            <span>Usuario registrado. El número de registros es: <%= rowLength %></span>
+            <!-- Botón para cerrar la alerta -->
+            <span class="close-btn" onclick="closeAlert(this)">&times;</span>
+            </div>
+        <% }  %>
+
+        <% if (typeof welcomeMessage !== 'undefined') { %>
+            <!-- Sección para mostrar mensajes de bienvenida con un enlace al formulario de inicio de sesión -->
+            <div class="alert success">
+            <span><%= welcomeMessage %></span>
+            <!-- Enlace al formulario de inicio de sesión -->
+            <a href="login" class="btn btn-success btn-sm mt-3">Ir a Login</a>
+            <!-- Botón para cerrar la alerta -->
+            <span class="close-btn" onclick="closeAlert(this)">&times;</span>
+            </div>
+        <% } %>
+
+
+                <!-- Formulario de registro con método POST para enviar datos a /validar -->
+        <form action="/validar" method="post">
+            <!-- Campo para la cédula -->
+            <div class="mb-3">
+                <label for="ced" class="form-label">Cédula</label>
+                <input type="number" class="form-control" id="ced" name="ced" required>
+            </div>
+
+            <!-- Campo para el nombre -->
+            <div class="mb-3">
+                <label for="nom" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nom" name="nom" required>
+            </div>
+
+            <!-- Campo para el apellido -->
+            <div class="mb-3">
+                <label for="apell" class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="apell" name="apell" required>
+            </div>
+
+            <!-- Campo para la fecha de nacimiento -->
+            <div class="mb-3">
+                <label for="fna" class="form-label">Fecha de Nacimiento</label>
+                <input type="date" class="form-control" id="fna" name="fna" required>
+            </div>
+
+            <!-- Campo para el teléfono -->
+            <div class="mb-3">
+                <label for="phone" class="form-label">Teléfono</label>
+                <input type="number" class="form-control" id="phone" name="phone" required>
+            </div>
+
+            <!-- Campo para el correo -->
+            <div class="mb-3">
+                <label for="correo" class="form-label">Correo</label>
+                <input type="email" class="form-control" id="correo" name="correo" required>
+            </div>
+
+            <!-- Campo para la contraseña -->
+            <div class="mb-3">
+                <label for="pass" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="pass" name="pass" required>
+            </div>
+
+            <!-- Botón para enviar el formulario -->
+            <button type="submit" class="btn btn-primary">Registrar</button>
+        </form>
+
+        <!-- Script para cerrar la alerta de manera animada -->
+        <script>
+            function closeAlert(btn) {
+                var alert = btn.parentElement;
+                alert.style.opacity = "0";
+                setTimeout(function() {
+                    alert.style.display = "none";
+                }, 500);
+            }
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hotel Campestre El Triunfo</title>
+        <link rel="icon" type="image/png" sizes="16x16" href="\images\favlogo.png">
+        <link rel="stylesheet" href="\css\style.css">
+    </head>
+
+<body>
+    <div class="title">
+        <table style="width:100%" border=0>
+            <tr>
+                <td align="left">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="\"><img src="\images\logo3.jpg" id="logo"/></a>
+                </td>
+                <td>
+                    
+                </td>
+                <td align="right">
+                    <a class="nav-link active" href="\">Inicio</a>&nbsp;&nbsp; 
+                    <a class="nav-link" href="login">Ingresar</a>&nbsp;&nbsp;
+                    <a class="nav-link" href="register">Registrarme</a>&nbsp;&nbsp;&nbsp;&nbsp; 
+                </td>
+            </tr>
+        </table>
+    </div>          
+            <h1>Iniciar Sesión</h1>
+            <% if (typeof rows !== 'undefined' && rows.length === 0) { %>
+                <!-- Sección de alerta para mostrar un mensaje en caso de usuario o contraseña incorrectos -->
+                <div class="alert warning" id="login-alert">
+                    <span>Usuario o Contraseña incorrecta.</span>
+                    <!-- Botón para cerrar la alerta -->
+                    <span class="close-btn" onclick="closeAlert('login-alert')">×</span>
+                </div>
+            <% } %>
+            
+            <!-- Formulario de inicio de sesión -->
+            <form action="/login" method="post" id="login">
+                Nombre de Usuario:
+                <input type="text" name="username" id="username"> <br><br>
+                Contraseña:
+                <input type="password" name="password" id="password"> <br><br>
+                <input type="submit" value="Iniciar Sesión">
+            </form>
+            
+            <!-- Enlace para registrarse -->
+            <p align="center">¿Aún no estás registrado? <a href="/register">Regístrate aquí</a>.</p>
+            
+            <!-- Script para cerrar la alerta de manera animada -->
+            <script>
+                function closeAlert(alertId) {
+                    var alert = document.getElementById(alertId);
+                    alert.style.opacity = "0";
+                    setTimeout(function() {
+                        alert.style.display = "none";
+                    }, 500);
+                }
+            </script>            
+      </body>
+</html>
